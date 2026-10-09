@@ -1,0 +1,2 @@
+import { z } from 'zod';
+export const contactSchema = z.object({name:z.string().trim().min(1,'Please enter your name.').max(100),email:z.string().trim().email('Please enter a valid email.').max(255),topic:z.enum(['General enquiry','Opportunity enquiry','Collaboration enquiry','Community interest']),message:z.string().trim().min(10,'Please write at least 10 characters.').max(3000),website:z.string().max(0,'Unable to submit this enquiry.').default(''),consent:z.literal(true,{errorMap:()=>({message:'Please agree to the privacy notice.'})})});
