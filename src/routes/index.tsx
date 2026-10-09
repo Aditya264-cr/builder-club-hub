@@ -1,24 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowDown, Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Blueprint, ClosingCTA, OpportunityCard, ArrowUpRight } from '@/components/site';
+import { skills, opportunities } from '@/lib/content';
+import { pageHead } from '@/lib/metadata';
+export const Route=createFileRoute('/')({head:()=>pageHead('Learn. Build. Grow.','An independent, student-led learning and innovation community. Discover practical skills, projects, and opportunities with Builder Club.'),component:Home});
+function Home(){return <main><section className="hero"><div className="wrap"><Blueprint/><div className="eyebrow">Independent learning & innovation community</div><h1>Your ambition deserves<br className="hidden sm:block"/> a place to <span>build.</span></h1><p className="hero-copy">Builder Club helps ambitious learners discover opportunities, develop practical skills, explore emerging technologies, and turn curiosity into meaningful progress.</p><div className="hero-actions"><Button asChild size="lg"><Link to="/opportunities">Explore Opportunities <ArrowUpRight/></Link></Button><Button asChild variant="outline" size="lg"><Link to="/about">Discover Builder Club <ArrowUpRight/></Link></Button></div><div className="hero-bottom"><span><Check/> Student-led. Independently driven.</span><span>FOR THE CURIOUS. THE AMBITIOUS. THE BUILDERS.</span><span>Explore what’s ahead <ArrowDown/></span></div></div></section><section className="section paper"><div className="wrap"><div className="eyebrow">THE BUILDER MINDSET</div><h2>Learning is the beginning.<br/>Building is the difference.</h2><div className="principles">{[{title:'Learn',text:'Discover structured learning resources, curated pathways, and opportunities to develop relevant skills.'},{title:'Build',text:'Apply knowledge through projects, challenges, experiments, and collaborative learning.'},{title:'Grow',text:'Develop professional confidence, connect with opportunities, and continue progressing.'}].map((p,i)=><div className="principle" key={p.title}><span className="number">0{i+1} /</span><h3>{p.title}<span className="text-primary">.</span></h3><p>{p.text}</p></div>)}</div></div></section><section className="section"><div className="wrap"><div className="section-head"><div><div className="eyebrow">POSSIBILITIES, CURATED</div><h2>Find your next opportunity.</h2></div><Link to="/opportunities" className="textlink">View all opportunities <ArrowUpRight/></Link></div><p className="subcopy mb-7">A look at what belongs here. These are sample listings, not live opportunities. Verified programmes and registration details will be published when available.</p><div className="item-grid">{opportunities.slice(0,3).map(item=><OpportunityCard key={item.slug} item={item}/>)}</div></div></section><section className="section paper"><div className="wrap"><div className="section-head"><div><div className="eyebrow">KNOWLEDGE INTO PROGRESS</div><h2>Build skills that move you forward.</h2></div><Link to="/learning" className="textlink">Explore the learning hub <ArrowUpRight/></Link></div><div className="learning-grid">{skills.map(skill=><article className="skill" key={skill.title}><skill.icon strokeWidth={1.25}/><h3>{skill.title}</h3><p>{skill.description}</p><Link to="/learning" className="textlink">Explore learning <ArrowUpRight/></Link></article>)}</div></div></section><section className="section"><div className="wrap community-band"><div><div className="eyebrow">BETTER, TOGETHER</div><h2>A community for<br/>people who keep moving.</h2><p className="subcopy mt-6">A space to discover resources, exchange ideas, participate in learning activities, and find opportunities to grow. Bring your curiosity. Keep building.</p><Button asChild variant="outline" className="mt-6"><Link to="/community">Find your place <ArrowUpRight/></Link></Button></div><div className="community-lines"><div className="community-line">Share what you’re learning <span>01 / LEARN</span></div><div className="community-line">Work on something meaningful <span>02 / BUILD</span></div><div className="community-line">Take the next step, together <span>03 / GROW</span></div></div></div></section><ClosingCTA/></main>}
