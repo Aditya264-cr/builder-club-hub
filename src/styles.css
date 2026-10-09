@@ -30,7 +30,7 @@ a { text-decoration:none; } button, input, select, textarea { font:inherit; } bu
 .eyebrow::before { content:''; width:5px; height:5px; background:var(--primary); }
 .hero { position:relative; overflow:hidden; border-bottom:1px solid var(--border); }
 .hero .wrap { padding-top:80px; padding-bottom:76px; position:relative; }
-.hero h1 { max-width:800px; font-size:78px; font-weight:500; line-height:1.06; margin:29px 0 26px; position:relative; z-index:1; }
+.hero h1 { max-width:960px; font-size:74px; font-weight:500; line-height:1.06; margin:29px 0 26px; position:relative; z-index:1; }
 .hero h1 span { color:var(--muted-foreground); }
 .hero-copy { max-width:525px; color:var(--muted-foreground); font-size:15px; line-height:1.9; }
 .hero-actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:32px; position:relative; z-index:1; }
