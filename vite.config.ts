@@ -42,7 +42,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     router: { basepath: ghPages ? "/builder-club-hub" : "/" },
-    pages: staticPages.map((path) => ({ path })),
+    // Prerender requests must include the router basepath, or the router
+    // answers every request with a redirect to the prefixed URL.
+    pages: staticPages.map((path) => ({
+      path: ghPages ? `/builder-club-hub${path === "/" ? "" : path}` : path,
+    })),
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });
