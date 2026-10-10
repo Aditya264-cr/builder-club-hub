@@ -15,4 +15,4 @@
 - Use validated public server intake and durable atomic rate limits for contact submissions; privileged insertion is isolated inside the handler and no public reading is allowed.
 - Preserve the official logo through its imported asset pointer; the favicon is a proportionally resized copy of the entire artwork.
 - GitHub Pages builds set GH_PAGES=true: Vite base and router basepath become /builder-club-hub, all routes prerender to static HTML, and the workflow copies index.html to 404.html as the SPA fallback. The router uses trailingSlash: "preserve" because the prerender crawler loops on strip-slash redirects.
-- The GitHub Pages workflow installs with Node 22 + npm ci against package-lock.json (regenerate with `npm install --package-lock-only` after dependency changes); bun remains the local dev package manager, so keep both lockfiles in sync.
+- The GitHub Pages workflow installs with oven-sh/setup-bun@v2 + `bun install --frozen-lockfile` and builds with `bun run build`; bun.lock is the only lockfile — do not add package-lock.json.
