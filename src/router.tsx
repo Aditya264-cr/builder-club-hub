@@ -31,6 +31,9 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
+    // The static prerender crawler requests "/page/" and follows redirects by
+    // re-adding the slash, so the default strip-slash redirect loops forever.
+    trailingSlash: "preserve",
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,

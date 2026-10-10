@@ -41,12 +41,7 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    router: {
-      basepath: ghPages ? "/builder-club-hub" : "/",
-      // The prerender crawler requests "/page/" and follows redirects by
-      // re-adding the slash, so the default strip-slash redirect loops forever.
-      trailingSlash: "preserve",
-    },
+    router: { basepath: ghPages ? "/builder-club-hub" : "/" },
     // Prerender requests must include the router basepath, or the router
     // answers every request with a redirect to the prefixed URL.
     pages: staticPages.map((path) => ({
