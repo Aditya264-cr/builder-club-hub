@@ -23,11 +23,9 @@ if (isPrerendering) {
   });
 }
 
-// Vite injects the configured base as BASE_URL ("/" locally,
-// "/builder-club-hub/" for the GitHub Pages build). TanStack Router wants it
-// without the trailing slash.
-const basepath = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
-
+// The base path ("/" locally, "/builder-club-hub" for the GitHub Pages build)
+// is declared in vite.config.ts via tanstackStart.router.basepath so the build
+// can publish a correct route manifest.
 export const getRouter = () => {
   const queryClient = new QueryClient();
 
