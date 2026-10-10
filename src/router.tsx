@@ -5,7 +5,7 @@ import { routeTree } from "./routeTree.gen";
 // During static prerendering, unref TanStack Query's GC timers so the build
 // process can exit once every page is written.
 const isPrerendering =
-  typeof process !== "undefined" && process.env.TSS_PRERENDERING === "true";
+  typeof process !== "undefined" && process.env["TSS_PRERENDERING"] === "true";
 if (isPrerendering) {
   timeoutManager.setTimeoutProvider({
     setTimeout: (cb, ms) => {

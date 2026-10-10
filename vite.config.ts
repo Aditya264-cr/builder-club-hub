@@ -9,7 +9,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // GitHub Pages serves the site at https://<user>.github.io/builder-club-hub/,
 // so static builds need that base path. GH_PAGES=true is set only by the
 // deploy workflow; the Lovable preview and local dev keep "/".
-const ghPages = process.env.GH_PAGES === "true";
+const ghPages = process.env["GH_PAGES"] === "true";
 
 // Every route renders identical HTML for every visitor, so all of them are
 // safe to prerender. Parameterized routes are enumerated with concrete paths.
