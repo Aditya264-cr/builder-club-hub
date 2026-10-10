@@ -14,3 +14,4 @@
 - Keep catalogue, learning resources, and editorial articles in a typed content module; opportunity samples are explicitly previews and cannot register.
 - Use validated public server intake and durable atomic rate limits for contact submissions; privileged insertion is isolated inside the handler and no public reading is allowed.
 - Preserve the official logo through its imported asset pointer; the favicon is a proportionally resized copy of the entire artwork.
+- GitHub Pages builds set GH_PAGES=true: Vite base and router basepath become /builder-club-hub, all routes prerender to static HTML, and the workflow copies index.html to 404.html as the SPA fallback. The router uses trailingSlash: "preserve" because the prerender crawler loops on strip-slash redirects.
