@@ -6,3 +6,4 @@
 - [ ] Real programme/event details and contact/social links: awaiting user content.
 - [ ] Owner email notifications: awaiting owner address and verified sending domain on a paid plan.
 - [ ] Sitemap setup: blocked until public domain exists.
+- [ ] Prepare GitHub Pages deployment for repo builder-club-hub: static prerender, base path, SPA fallback, Actions workflow; verify build.
